@@ -6,7 +6,7 @@ metadata:
     app: ibm-spectrum-discover
 provisioner: spectrumscale.csi.ibm.com
 parameters:
-    volBackendFs: "fs1"
+    volBackendFs: "scale-jmasc-csplab-cnsa"
     clusterId: "7190932967857929650"  # CNSA storage cluster (remote cluster) ID obtained via mmlscluster
     uid: "1000"
     gid: "1000"

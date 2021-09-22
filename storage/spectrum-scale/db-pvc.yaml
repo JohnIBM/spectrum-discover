@@ -10,6 +10,6 @@ spec:
       storage: 500Gi # This is the least amount of storage available for DB2
                # It must be less or equal to the amount of storage in the pv to be claimed.
   accessModes:
-      - ReadWriteMany # This must be defined to be claimed by the pv created.
+    - ReadWriteMany # This must be defined to be claimed by the pv created.
   storageClassName: sd-sc
 
