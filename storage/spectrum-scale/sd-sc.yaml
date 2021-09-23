@@ -7,7 +7,7 @@ metadata:
 provisioner: spectrumscale.csi.ibm.com
 parameters:
     volBackendFs: "scale-jmasc-csplab-cnsa"
-    clusterId: "7190932967857929650"  # CNSA storage cluster (remote cluster) ID obtained via mmlscluster
+    clusterId: "7190932967857929650"  # CNSA storage cluster (remote cluster) ID obtained from mmlscluster
     uid: "1000"
     gid: "1000"
 reclaimPolicy: Retain # Important
