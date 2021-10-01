@@ -1,3 +1,4 @@
+# Updated image location
 kind: Template
 apiVersion: v1
 metadata:
