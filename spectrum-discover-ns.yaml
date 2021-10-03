@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: spectrum-discover
+  annotations:
+    openshift.io/description: "IBM Spectrum Discover"
+    openshift.io/display-name: "IBM Spectrum Discover"
+    openshift.io/node-selector: scale=true
+    
+  
