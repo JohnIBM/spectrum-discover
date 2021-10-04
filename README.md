@@ -20,7 +20,9 @@ https://www.ibm.com/docs/en/spectrum-discover/2.0.4?topic=configuring-deploy-spe
     ```
     oc get nodes -lscale=true
     ```
-
+    The node list will appears as follows:
+    ![oc get nodes -lscale=true](images/oc-get-nodes.png)
+    
 4. You must disable SE Linux for the OpenShift worker nodes where IBM Spectrum Scale will run. The command is as follows:
     ```
     for node in `oc get node --no-headers -lscale=true | awk '{print $1}'`; do oc debug node/$node -T -- chroot /host sh -c "sudo setenforce 0"; done
