@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: db-pv
+  labels:
+    app: ibm-spectrum-discover
+spec:
+  capacity:
+    storage: 500Gi # This is the maximum size of the DB2 persistent volume
+  nfs: # For illustrative purposes, this is a persistent volume defined on NFS storage.
+    server: 192.168.22.1
+    path: /mnt/db2wh # For illustrative purposes, this must be a path exclusive for DB2 use.
+  accessModes:
+    - ReadWriteMany # This must be defined to be correctly claimed.
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: sd-sc

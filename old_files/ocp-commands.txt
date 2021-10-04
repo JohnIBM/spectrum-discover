@@ -1,0 +1,8 @@
+# List nodes
+oc get nodes -ojsonpath="{range .items[*]}{.metadata.name}{'\n'}"
+
+# Run commands on a node:
+oc debug node/<openshift_worker_node> -T -- chroot /host sh -c "ls -la"
+
+# List scale nodes:
+for node in `oc get nodes -lscale=true -ojsonpath="{range .items[*]}{.metadata.name}{'\n'}"`; do oc get node $node --show-labels ; done

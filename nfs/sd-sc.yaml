@@ -1,0 +1,9 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: sd-sc
+  labels:
+    app: ibm-spectrum-discover
+provisioner: kubernetes.io/no-provisioner
+reclaimPolicy: Retain # Important
+volumeBindingMode: Immediate # Important
