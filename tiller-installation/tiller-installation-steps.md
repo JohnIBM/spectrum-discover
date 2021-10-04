@@ -51,4 +51,4 @@ Client: &version.Version{SemVer:"v2.17.0", GitCommit:"a690bad98af45b015bd3da1a41
 Server: &version.Version{SemVer:"v2.17.0", GitCommit:"a690bad98af45b015bd3da1a41f6218b1a451dbe", GitTreeState:"clean"}
 ```
    
-[Return to README](../README.md#storage_definitions)
+Next Step: [Storage Definitions for IBM Spectrum Scale](../README.md#storage_definitions)
