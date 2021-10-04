@@ -50,8 +50,8 @@ https://www.ibm.com/docs/en/spectrum-discover/2.0.4?topic=configuring-deploy-spe
 In step #2 of the documentation, there are issues with the procedure to install Helm. The following procedure has been corrected to use Helm v2.17.0 and tested with IBM Spectrum Scale: [Click here for the installation procedure](tiller-installation/tiller-installation-steps.md)
 
 ### <a name="storage_definitions"></a>Storage Definitions for IBM Spectrum Scale
-In step #4 of the documentation, you can use the StorageClass and Persistent Volume Claim definitions provided [here.](https://github.com/JohnIBM/spectrum-discover-install/tree/main/spectrum-scale)
-Please note the "permissions" support introduced with CSI 2.3.0 is required for subPath support. This is defined in the parameters section of the storage class as follows:
+In step #4 of the documentation, you can use the StorageClass and PersistentVolumeClaim definitions provided [here.](https://github.com/JohnIBM/spectrum-discover-install/tree/main/spectrum-scale)
+Please note the "permissions" parameter introduced with CSI 2.3.0 is required for subPath support. This is defined in the parameters section of the storage class as follows:
 ```
 parameters:
     volBackendFs: "xxxx"
