@@ -22,12 +22,16 @@ https://www.ibm.com/docs/en/spectrum-discover/2.0.4?topic=configuring-deploy-spe
     ```
     The node list will appears as follows:
     ![oc get nodes -lscale=true](images/oc-get-nodes.png)
-    
-4. You must disable SE Linux for the OpenShift worker nodes where IBM Spectrum Scale will run. The command is as follows:
+
+4.  SELinux
+
+    IBM Spectrum Discover requires RWX access for the data volumes. The considerations for Spectrum Scale are described here: https://www.ibm.com/docs/en/spectrum-scale-csi?topic=pods-considerations-mounting-read-write-many-rwx-volumes
+
+    In order to simplify access control, you may choose to disable SE Linux for the OpenShift worker nodes where IBM Spectrum Scale will run. The command is as follows:
     ```
     for node in `oc get node --no-headers -lscale=true | awk '{print $1}'`; do oc debug node/$node -T -- chroot /host sh -c "sudo setenforce 0"; done
     ```
-    You can verify with the following command:
+    You can verify this with the following command:
     ```
     for node in `oc get node --no-headers -lscale=true | awk '{print $1}'`; do oc debug node/$node -T -- chroot /host sh -c "sudo getenforce"; done
     
