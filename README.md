@@ -17,9 +17,9 @@ https://www.ibm.com/docs/en/spectrum-discover/2.0.4?topic=configuring-deploy-spe
    https://www.ibm.com/docs/en/spectrum-scale-csi?topic=spectrum-scale-container-storage-interface-driver-230
 
 3. If you have labeled nodes for Spectrum Scale, validate this from the OpenShift command line as follows"
-    `
+    ```
     oc get nodes -lscale=true
-    `
+    ```
 
 4. You must disable SE Linux for the OpenShift worker nodes where IBM Spectrum Scale will run. The command is as follows:
     ```
