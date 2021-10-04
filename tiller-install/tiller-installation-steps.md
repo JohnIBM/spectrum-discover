@@ -1,11 +1,10 @@
-# Installing Helm/Tiller 2.17.0 for Spectrum Discover
+# Installing Helm / Tiller 2.17.0 for Spectrum Discover
 
 <!--- cSpell: helm tiller allowfullscreen -->
 
 
-## CPD Deployment on IBM Cloud
-
---8<-- "cpd_intro_snippet.md"
+### The following steps must be performed on a client with access to the OpenShift cluster, using the OpenShift CLI (oc)
+`oc new-project tiller`
 
 ### 1 - Prereqs
 
