@@ -54,3 +54,5 @@ If you have cloned this repository, you can create the assets using the followin
 oc create -f spectrum-discover-install/spectrum-scale/
 ```
 
+## Next Step: Proceed with the DB2WH installation as normal, starting from step 5 here:
+https://www.ibm.com/docs/en/spectrum-discover/2.0.4?topic=openshift-deploying-db2-warehouse-red-hat
