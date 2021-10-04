@@ -32,7 +32,7 @@ image: ghcr.io/helm/tiller:${HELM_VERSION}
 
 Run the following command to install the correct version:
 ```
-oc process -f tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.17.0 | oc create -f -
+oc process -f spectrum-discover-install/tiller/tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.17.0 | oc create -f -
 ```
 Monitor the install as follows:
 ```
