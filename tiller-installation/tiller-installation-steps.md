@@ -3,8 +3,8 @@
 <!--- cSpell: helm tiller allowfullscreen -->
 
 
-##  The following steps must be performed on a client with access to the OpenShift cluster 
-##  using the OpenShift Command Line Interface (oc) 
+###  The following steps must be performed on a client with access to the OpenShift cluster 
+###  using the OpenShift Command Line Interface (oc) 
 
 ### Step 1 - Create the tiller namespace, retrieve the install package and initialize the helm client:
 
