@@ -1,4 +1,4 @@
-# Installing IBM Spectrum Discover on RedHat OpenShift with Spectrum Scale CNSA
+# Installing IBM Spectrum Discover on RedHat OpenShift with Spectrum Scale Container Native Storage Access
 
 ## Note: These steps are intended as a supplement to the IBM Spectrum Discover documentation found [here:](https://www.ibm.com/docs/en/spectrum-discover/2.0.4?topic=configuring-deploy-spectrum-discover-red-hat-openshift)
 
