@@ -1,8 +1,9 @@
 # Installing IBM Spectrum Discover with Spectrum Scale CNSA
 
+## Note: These steps are intended as a supplement to the IBM Spectrum Discover documentation found [here:](https://www.ibm.com/docs/en/spectrum-discover/2.0.4?topic=configuring-deploy-spectrum-discover-red-hat-openshift)
 
-## Note: These steps are intended as a supplement to the IBM Documentation found here:
-https://www.ibm.com/docs/en/spectrum-discover/2.0.4?topic=configuring-deploy-spectrum-discover-red-hat-openshift
+### https://www.ibm.com/docs/en/spectrum-discover/2.0.4?topic=configuring-deploy-spectrum-discover-red-hat-openshift
+
 
 ## Step 1: Preparing the OpenShift Cluster
 
@@ -21,6 +22,7 @@ https://www.ibm.com/docs/en/spectrum-discover/2.0.4?topic=configuring-deploy-spe
     oc get nodes -lscale=true
     ```
     The node list will appears as follows:
+
     ![oc get nodes -lscale=true](images/oc-get-nodes.png)
 
 4.  SELinux
