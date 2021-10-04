@@ -45,7 +45,7 @@ The documentation for IBM Spectrum Discover on OpenShift can be found here:
 https://www.ibm.com/docs/en/spectrum-discover/2.0.4?topic=configuring-deploy-spectrum-discover-red-hat-openshift
 
 ### Modified procedure for installing Helm 
-In step #2 of the documentation, there are issues with the procedure to install Helm. The following procedure has been corrected to use Helm v2.17.0 and tested with IBM Spectrum Scale: [Click here for the installation procedure](tiller-installation\tiller-installation-steps.md)
+In step #2 of the documentation, there are issues with the procedure to install Helm. The following procedure has been corrected to use Helm v2.17.0 and tested with IBM Spectrum Scale: [Click here for the installation procedure](tiller-installation/tiller-installation-steps.md)
 
 ### <a name="storage_definitions"></a>Storage Definitions for IBM Spectrum Scale
 In step #4 of the documentation, you can use the StorageClass and Persistent Volume Claim definitions provided here.
