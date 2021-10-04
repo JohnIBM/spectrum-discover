@@ -51,6 +51,16 @@ In step #2 of the documentation, there are issues with the procedure to install 
 
 ### <a name="storage_definitions"></a>Storage Definitions for IBM Spectrum Scale
 In step #4 of the documentation, you can use the StorageClass and Persistent Volume Claim definitions provided [here.](https://github.com/JohnIBM/spectrum-discover-install/tree/main/spectrum-scale)
+Please note the "permissions" support introduced with CSI 2.3.0 is required for subPath support. This is defined in the parameters section of the storage class as follows:
+```
+parameters:
+    volBackendFs: "xxxx"
+    clusterId: "xxxxxxxxxxxxxx"  
+    uid: "1000"
+    gid: "1000"
+    permissions: "777"
+```
+
 If you have cloned this repository, you can create the assets using the following command:
 ```
 oc create -f spectrum-discover-install/spectrum-scale/
