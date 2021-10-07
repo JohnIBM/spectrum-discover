@@ -1,3 +1,4 @@
+# Set Environment Variables for IBM Spectrum Discover Installation
 export master_ip="172.18.42.240"
 export SD_USER="sdadmin"
 export SD_PASSWORD="Passw0rd"
