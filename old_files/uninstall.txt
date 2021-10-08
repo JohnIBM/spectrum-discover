@@ -20,3 +20,14 @@ for sa in `oc -n spectrum-discover get sa --no-headers | awk '{print $1}'`; do o
 
 # delete this as well
 oc delete clusterrole system:openshift:scc:db2wh-scc
+
+
+oc delete pvc xxxx
+oc patch pv pvc-3dec23d4-7f98-4377-8a06-a4fb51962519 -p '{"spec":{"claimRef": null}}'
+
+oc rsh -n openshift-etcd $(oc get pods -n openshift-etcd -o=jsonpath='{.items[0].metadata.name}')
+for r in `etcdctl get / --prefix --keys-only | grep "^/.*/.*/ibm-spectrum-scale-csi/.*"`; do echo "Resource: '$(echo $r | cut -d"/" -f 3)' - Name: '$(echo $r | cut -d"/" -f 5)'";done
+
+
+# Patch PVC to Delete:
+oc patch pv retain-pvc -p '{"spec":{"persistentVolumeReclaimPolicy":"Delete"}}'
