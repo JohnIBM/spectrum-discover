@@ -1,6 +1,6 @@
 
 
-export TILLER_NAMESPACE=john-tiller-test 
+export TILLER_NAMESPACE=tiller
 oc new-project $TILLER_NAMESPACE
 curl -s https://get.helm.sh/helm-v2.17.0-linux-amd64.tar.gz|tar xz 
 cd linux-amd64/
