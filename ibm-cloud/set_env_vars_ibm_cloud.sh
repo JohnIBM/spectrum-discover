@@ -1,5 +1,6 @@
 # Set Environment Variables for IBM Spectrum Discover Installation
-export master_ip="172.18.42.240"
+# Master IP for the Ansible install node
+export master_ip="10.240.65.28"
 export SD_USER="sdadmin"
 export SD_PASSWORD="Passw0rd"
 export installer_path="/home/discover"
@@ -11,10 +12,18 @@ export sd_storage_class="sd-sc"
 export db2wh_pvc_name="db-pvc"
 export data_pvc_name="sd-data-pvc"
 export backup_pvc_name="sd-backup-pvc"
-export ingress_host="spectrum-discover-ingress.apps.jmasc-ocp.csplab.local"
+# Spectrum Discover ingress host name
+# Use spectrum-discover-ingress.apps.<OpenShift Base Domain>
+# OpenShift Base Domain can be found using the following command:
+# oc describe dns cluster | grep "Base Domain"
+# Base Domain:  utex-ocp40-087f1b5ad0f770c98b8048ce098b9d43-0000.us-south.containers.appdomain.cloud
+
+export ingress_host="spectrum-discover-ingress.apps.utex-ocp40-087f1b5ad0f770c98b8048ce098b9d43-0000.us-south.containers.appdomain.cloud"
 export ingress_tls_secret_name="spectrum-discover-ingress-tls-name"
-export kafka_sasl_host="jmasc-ocp-h9p4v-compute-4.jmasc-ocp.csplab.local"
-export kafka_ssl_host="jmasc-ocp-h9p4v-compute-5.jmasc-ocp.csplab.local"
+# The following hosts are selected using "oc get nodes" (choose any two nodes)
+export kafka_sasl_host="10.240.0.25"
+export kafka_ssl_host="10.240.65.25"
+
 export image_repository="default-route-openshift-image-registry.apps.jmasc-ocp.csplab.local/spectrum-discover"
 export TILLER_NAMESPACE=tiller
 export HOST=$(oc get route default-route -n openshift-image-registry --template='{{ .spec.host }}')
