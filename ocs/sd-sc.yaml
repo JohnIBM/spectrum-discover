@@ -16,4 +16,4 @@ parameters:
   fsName: ocs-storagecluster-cephfilesystem
 reclaimPolicy: Retain #Important
 allowVolumeExpansion: true
-volumeBindingMode: Immediate #Important
+volumeBindingMode: Immediate #Important 
