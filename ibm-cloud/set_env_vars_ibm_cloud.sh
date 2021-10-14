@@ -12,10 +12,8 @@ export sd_storage_class="sd-sc"
 export db2wh_pvc_name="db-pvc"
 export data_pvc_name="sd-data-pvc"
 export backup_pvc_name="sd-backup-pvc"
-# Spectrum Discover ingress host name
-# Use spectrum-discover-ingress.apps.<OpenShift Base Domain>
-# OpenShift Base Domain can be found using the following command:
-# oc describe dns cluster | grep "Base Domain"
+# Spectrum Discover ingress host name: use spectrum-discover-ingress.apps.<OpenShift Base Domain>
+# OpenShift Base Domain can be found using the following command: oc describe dns cluster | grep "Base Domain"
 # Base Domain:  utex-ocp40-087f1b5ad0f770c98b8048ce098b9d43-0000.us-south.containers.appdomain.cloud
 
 export ingress_host="spectrum-discover-ingress.apps.utex-ocp40-087f1b5ad0f770c98b8048ce098b9d43-0000.us-south.containers.appdomain.cloud"
