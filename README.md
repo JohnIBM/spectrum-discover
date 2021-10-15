@@ -42,6 +42,28 @@
 
     ![getenforce](images/getenforce1.png)
 
+5.  kubectl
+    This is required for the DB2WH scripts in step 5:
+    ```
+    cd ${installer_path}/spectrum-discover-package/ibm-db2warehouse/ibm_cloud_pak/pak_extensions
+    ./pre-install/clusterAdministration/createSecurityClusterPrereqs.sh
+    ./pre-install/namespaceAdministration/createSecurityNamespacePrereqs.sh ${project_name}
+    ```
+
+    Installation Steps:
+    ```
+    curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+    chmod +x kubectl
+    mv kubectl /usr/bin
+    ```
+
+6.  Install podman
+    yum -y install podman
+    
+7. Install Istio
+    https://docs.openshift.com/container-platform/4.8/service_mesh/v1x/installing-ossm.html
+
+
 ## Step 2: Install DB2WH and Spectrum Discover
 The documentation for IBM Spectrum Discover on OpenShift can be found here:
 https://www.ibm.com/docs/en/spectrum-discover/2.0.4?topic=configuring-deploy-spectrum-discover-red-hat-openshift
