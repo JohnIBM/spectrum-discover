@@ -21,7 +21,8 @@ export ingress_tls_secret_name="spectrum-discover-ingress-tls-name"
 # The following hosts are selected using "oc get nodes" (choose any two nodes)
 export kafka_sasl_host="10.240.0.25"
 export kafka_ssl_host="10.240.65.25"
-
-export image_repository="default-route-openshift-image-registry.apps.utex-ocp40-087f1b5ad0f770c98b8048ce098b9d43-0000.us-south.containers.appdomain.cloud/spectrum-discover"
+# Obtain image_repository location from "oc describe route -n openshift-image-registry | grep Host:"
+# Requested Host: default-route-openshift-image-registry.utex-ocp40-087f1b5ad0f770c98b8048ce098b9d43-0000.us-south.containers.appdomain.cloud
+export image_repository="default-route-openshift-image-registry.utex-ocp40-087f1b5ad0f770c98b8048ce098b9d43-0000.us-south.containers.appdomain.cloud/spectrum-discover"
 export TILLER_NAMESPACE=tiller
 export HOST=$(oc get route default-route -n openshift-image-registry --template='{{ .spec.host }}')

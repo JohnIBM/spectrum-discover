@@ -11,25 +11,42 @@ oc get routes -n openshift-image-registry
 ```
 HOST=$(oc get route default-route -n openshift-image-registry --template='{{ .spec.host }}')
 podman login -u kubeadmin -p $(oc whoami -t) --tls-verify=false $HOST 
-
-## Install kubectl
+```
+# Install kubectl
 ```
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x kubectl
 mv kubectl /usr/bin
 ```
-
-## Set Environment Variables
+# Set Environment Variables
 ```
 git clone https://github.com/JohnIBM/spectrum-discover-install.git
 chmod +x ./spectrum-discover-install/ibm-cloud/set_env_vars_ibm_cloud.sh
 . ./spectrum-discover-install/ibm-cloud/set_env_vars_ibm_cloud.sh
 ```
 
-
-## Step 4 Create SC/PVC
+# Step 4 Create SC/PVC
+```
 oc project ${project_name}
 oc create -f ${installer_path}/spectrum-discover-install/ibm-cloud/
+```
+
+## Spectrum Discover Install
+
+```
+oc project ${project_name}
+```
+# Add spectrum-discover to the service mesh member role
+```
+oc edit smmr default -n istio-system
+```
+
+Complete as follows:
+```
+spec:
+  members:
+    - spectrum-discover
+```
 
 
 
