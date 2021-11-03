@@ -39,6 +39,7 @@ wget -q https://github.com/openshift/origin/raw/master/examples/helm/tiller-temp
 # The following step corrects the image location for Helm v2
 sed -i 's|gcr.io\/kubernetes-helm\/tiller|ghcr.io\/helm\/tiller|g' tiller-template.yaml
 oc process -f tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.17.0 | oc create -f -
+rm -f tiller-template.yaml
 ```
 
 Monitor the install as follows:
