@@ -7,15 +7,15 @@
 
 ## Step 1: Preparing the OpenShift Cluster
 
-1. Install IBM Spectrum Scale Container Native Storage Access (CNSA) 5.1.1.3
+1. Install IBM Spectrum Scale Container Native Storage Access (CNSA) 5.1.1.4
 
    For details on this process, please see the IBM documentation here:
-   https://www.ibm.com/docs/en/scalecontainernative?topic=spectrum-scale-container-native-storage-access-5113
+   https://www.ibm.com/docs/en/scalecontainernative?topic=spectrum-scale-container-native-storage-access-5114
 
-2. Verify IBM Spectrum Scale CSI Driver is at level V2.3.0 
+2. Verify IBM Spectrum Scale CSI Driver is at level V2.3.1
 
    This is now automatically installed during the CNSA installation. For additional information the IBM Spectrum Scale CSI driver, please see: 
-   https://www.ibm.com/docs/en/spectrum-scale-csi?topic=spectrum-scale-container-storage-interface-driver-230
+   https://www.ibm.com/docs/en/spectrum-scale-csi?topic=spectrum-scale-container-storage-interface-driver-231
 
 3. If you have labeled nodes for Spectrum Scale, validate this from the OpenShift command line as follows"
     ```
@@ -29,6 +29,7 @@
 
     IBM Spectrum Discover requires RWX access for the data volumes. The considerations for Spectrum Scale are described here: https://www.ibm.com/docs/en/spectrum-scale-csi?topic=pods-considerations-mounting-read-write-many-rwx-volumes
 
+    ## Remove this Section
     In order to simplify access control, you may choose to disable SE Linux for the OpenShift worker nodes where IBM Spectrum Scale will run. The command is as follows:
     ```
     for node in `oc get node --no-headers -lscale=true | awk '{print $1}'`; do oc debug node/$node -T -- chroot /host sh -c "sudo setenforce 0"; done
@@ -41,7 +42,8 @@
     You should see output similar to the following:
 
     ![getenforce](images/getenforce1.png)
-
+    ## Section Remove
+    
 5.  kubectl
     This is required for the DB2WH scripts in step 5:
     ```

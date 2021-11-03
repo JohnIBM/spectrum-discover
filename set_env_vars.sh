@@ -17,4 +17,6 @@ export kafka_sasl_host="jmasc-ocp-h9p4v-compute-4.jmasc-ocp.csplab.local"
 export kafka_ssl_host="jmasc-ocp-h9p4v-compute-5.jmasc-ocp.csplab.local"
 export image_repository="default-route-openshift-image-registry.apps.jmasc-ocp.csplab.local/spectrum-discover"
 export TILLER_NAMESPACE=tiller
+# OCP registry must be exposed:
+# oc patch configs.imageregistry.operator.openshift.io/cluster --patch '{"spec":{"defaultRoute":true}}' --type=merge
 export HOST=$(oc get route default-route -n openshift-image-registry --template='{{ .spec.host }}')
