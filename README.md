@@ -52,7 +52,12 @@
 7. Install Istio
     https://docs.openshift.com/container-platform/4.8/service_mesh/v1x/installing-ossm.html
 
-
+8. Configure Extra IP addresses on bastion for Kafka clusters
+    ```
+    nmcli con mod ens192 ipv4.addresses "9.23.220.220/24,9.23.228.206/24,9.23.228.206/24"
+    nmcli con up ens192
+    ip a
+    ```
 ## Step 2: Install DB2WH and Spectrum Discover
 The documentation for IBM Spectrum Discover on OpenShift can be found here:
 https://www.ibm.com/docs/en/spectrum-discover/2.0.4?topic=configuring-deploy-spectrum-discover-red-hat-openshift

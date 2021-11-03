@@ -17,7 +17,6 @@ export ingress_host="spectrum-discover-ingress.apps.ocp.vsphere.local"
 export ingress_tls_secret_name="spectrum-discover-ingress-tls-name"
 # Pick two nodes 
 # oc get nodes -lscale=true -ojsonpath="{range .items[*]}{.metadata.name}
-
 export kafka_sasl_host="ocp-z9xlk-compute-2.ocp.vsphere.local"
 export kafka_ssl_host="ocp-z9xlk-compute-3.ocp.vsphere.local"
 export image_repository="default-route-openshift-image-registry.apps.ocp.vsphere.local/spectrum-discover"
