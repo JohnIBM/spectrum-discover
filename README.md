@@ -29,21 +29,8 @@
 
     IBM Spectrum Discover requires RWX access for the data volumes. The considerations for Spectrum Scale are described here: https://www.ibm.com/docs/en/spectrum-scale-csi?topic=pods-considerations-mounting-read-write-many-rwx-volumes
 
-    ## Remove this Section
-    In order to simplify access control, you may choose to disable SE Linux for the OpenShift worker nodes where IBM Spectrum Scale will run. The command is as follows:
-    ```
-    for node in `oc get node --no-headers -lscale=true | awk '{print $1}'`; do oc debug node/$node -T -- chroot /host sh -c "sudo setenforce 0"; done
-    ```
-    You can verify this with the following command:
-    ```
-    for node in `oc get node --no-headers -lscale=true | awk '{print $1}'`; do oc debug node/$node -T -- chroot /host sh -c "sudo getenforce"; done
     
-    ```
-    You should see output similar to the following:
 
-    ![getenforce](images/getenforce1.png)
-    ## Section Remove
-    
 5.  kubectl
     This is required for the DB2WH scripts in step 5:
     ```
