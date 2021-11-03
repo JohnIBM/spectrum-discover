@@ -54,7 +54,7 @@
 
 8. Configure Extra IP addresses on bastion for Kafka clusters
     ```
-    nmcli con mod ens192 ipv4.addresses "9.23.220.220/24,9.23.228.206/24,9.23.228.207/24"
+    nmcli con mod ens192 ipv4.addresses "9.23.228.220/24,9.23.228.206/24,9.23.228.207/24"
     nmcli con up ens192
     ip a
     ```
