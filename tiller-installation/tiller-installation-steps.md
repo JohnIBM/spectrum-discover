@@ -9,11 +9,13 @@
 ### Step 1 - Create the tiller namespace, retrieve the install package and initialize the helm client:
 
 ```
-oc new-project tiller
 export TILLER_NAMESPACE=tiller
-curl -s https://get.helm.sh/helm-v2.17.0-linux-amd64.tar.gz | tar xz
+oc new-project $TILLER_NAMESPACE
+curl -s https://get.helm.sh/helm-v2.17.0-linux-amd64.tar.gz|tar xz 
 cd linux-amd64/
+# Client install
 ./helm init --client-only
+cp ./helm /usr/bin/
 ```
 
 ### Step 2 - Install the server side components in OpenShift
@@ -23,7 +25,7 @@ The command in the documentation is no longer valid:
 ```
 oc process -f https://github.com/openshift/origin/raw/master/examples/helm/tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.17.0 | oc create -f -
 ```
-To correct this, use the tiller-template.yaml file provided. The following correction has been made and provided in the tiller-template.yaml file:
+To correct this, the following steps with download and correct the tiller-template.yaml file:
 ```
 image: gcr.io/kubernetes-helm/tiller:${HELM_VERSION}
 has been corrected to:
@@ -32,16 +34,20 @@ image: ghcr.io/helm/tiller:${HELM_VERSION}
 
 Run the following command to install the correct version:
 ```
-oc process -f spectrum-discover-install/tiller/tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.17.0 | oc create -f -
+# Server Install
+wget -q https://github.com/openshift/origin/raw/master/examples/helm/tiller-template.yaml
+# The following step corrects the image location for Helm v2
+sed -i 's|gcr.io\/kubernetes-helm\/tiller|ghcr.io\/helm\/tiller|g' tiller-template.yaml
+oc process -f tiller-template.yaml -p TILLER_NAMESPACE="${TILLER_NAMESPACE}" -p HELM_VERSION=v2.17.0 | oc create -f -
 ```
+
 Monitor the install as follows:
 ```
 oc rollout status deployment tiller
 ```
 
-Copy the updated binary to the local path and validate the versions:
+Validate the versions:
 ```
-cp ./helm /usr/bin/
 ./helm version
 ```
 
