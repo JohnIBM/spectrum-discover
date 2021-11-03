@@ -1,0 +1,16 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: sd-sc
+  labels:
+    app: ibm-spectrum-discover
+provisioner: spectrumscale.csi.ibm.com
+parameters:
+    volBackendFs: "scale-stg-storage-cnsa-fs1"
+    clusterId: "16969073011086255063"  # CNSA storage cluster (remote cluster) ID obtained from mmlscluster
+    uid: "1000"
+    gid: "1000"
+    permissions: "777" #Important for subPath support, requires IBM Spectrum Scale CSI 2.3.0
+reclaimPolicy: Retain # Important
+volumeBindingMode: Immediate # Important
+

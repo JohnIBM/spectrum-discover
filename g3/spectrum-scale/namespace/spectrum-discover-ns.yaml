@@ -1,0 +1,16 @@
+# Sample Namespace Configuration for Spectrum Scale scale=true
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: spectrum-discover
+  annotations:
+    openshift.io/description: "IBM Spectrum Discover"
+    openshift.io/display-name: "IBM Spectrum Discover"
+    openshift.io/node-selector: scale=true
+    openshift.io/scc: spectrum-discover-scc
+    
+# Added for RWX access
+# https://www.ibm.com/docs/en/spectrum-scale-csi?topic=pods-considerations-mounting-read-write-many-rwx-volumes
+securityContext:
+    seLinuxOptions:
+      level: "s0:c123,c456"
