@@ -105,8 +105,11 @@ If the license has not been applied correctly, you may see the following login e
 
 ![Login Error](images/trial-login-error.png)
 
-# Fix 
+# Apply License and Restart License Pods
 
+1. Optain the token value from the Spectrum Discover installation package, located in the file:
+ibm-spectrum-discover-unrestriced.lic
+2. Run the following commands to apply the license via the license ConfigMap
 ```
 cat << EOF | oc apply -f -
 ---
@@ -120,8 +123,7 @@ data:
     <insert-token-here-with-no-spaces>
 EOF
 ```
-
-Then delete the license pods as follows:
+3. Then delete the license pods as follows:
 ```
 for po in `oc get po -n spectrum-discover | grep license | awk '{print $1}'`;do oc delete po $po; done
 ```
