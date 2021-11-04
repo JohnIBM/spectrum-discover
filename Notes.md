@@ -69,6 +69,8 @@ spec:
   registrySources:
     insecureRegistries:
     - default-route-openshift-image-registry.apps.ocp.vsphere.local
+
+
+## Service Mesh
 ```
-
-
+oc edit smmr default -n istio-system
