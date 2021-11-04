@@ -1,0 +1,264 @@
+ansible-playbook 2.9.13
+  config file = None
+  configured module search path = ['/opt/app-root/src/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.6/site-packages/ansible
+  executable location = /usr/local/bin/ansible-playbook
+  python version = 3.6.8 (default, Mar 18 2021, 08:58:41) [GCC 8.4.1 20200928 (Red Hat 8.4.1-1)]
+No config file found; using defaults
+setting up inventory plugins
+Parsed spectrum-discover-generate-license-vds8r, inventory source with host_list plugin
+Loading callback plugin default of type stdout, v2.0 from /usr/local/lib/python3.6/site-packages/ansible/plugins/callback/default.py
+
+PLAYBOOK: playbook.yaml ********************************************************
+Positional arguments: playbook.yaml
+verbosity: 4
+connection: local
+timeout: 10
+become_method: sudo
+tags: ('all',)
+inventory: ('spectrum-discover-generate-license-vds8r,',)
+forks: 5
+1 plays in playbook.yaml
+
+PLAY [localhost] ***************************************************************
+META: ran handlers
+
+TASK [Query existing license] **************************************************
+task path: /opt/ibm/metaocean/roles/license/tasks/main.yaml:13
+included: /opt/ibm/metaocean/roles/license/tasks/k8s_api_call.yaml for localhost
+
+TASK [license : include_tasks] *************************************************
+task path: /opt/ibm/metaocean/roles/license/tasks/k8s_api_call.yaml:13
+included: /opt/ibm/metaocean/roles/license/tasks/get_token.yaml for localhost
+
+TASK [license : Read Kubernetes API token] *************************************
+task path: /opt/ibm/metaocean/roles/license/tasks/get_token.yaml:13
+<127.0.0.1> ESTABLISH LOCAL CONNECTION FOR USER: root
+<127.0.0.1> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1636027049.5194983-18-256403116388970 `" && echo ansible-tmp-1636027049.5194983-18-256403116388970="` echo /root/.ansible/tmp/ansible-tmp-1636027049.5194983-18-256403116388970 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/commands/command.py
+<127.0.0.1> PUT /opt/app-root/src/.ansible/tmp/ansible-local-8uu4_sstq/tmpba_vasaq TO /root/.ansible/tmp/ansible-tmp-1636027049.5194983-18-256403116388970/AnsiballZ_command.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1636027049.5194983-18-256403116388970/ /root/.ansible/tmp/ansible-tmp-1636027049.5194983-18-256403116388970/AnsiballZ_command.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3.6 /root/.ansible/tmp/ansible-tmp-1636027049.5194983-18-256403116388970/AnsiballZ_command.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1636027049.5194983-18-256403116388970/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => {
+    "changed": false,
+    "cmd": [
+        "cat",
+        "/var/run/secrets/kubernetes.io/serviceaccount/token"
+    ],
+    "delta": "0:00:00.046120",
+    "end": "2021-11-04 11:57:32.176174",
+    "invocation": {
+        "module_args": {
+            "_raw_params": "cat /var/run/secrets/kubernetes.io/serviceaccount/token",
+            "_uses_shell": false,
+            "argv": null,
+            "chdir": null,
+            "creates": null,
+            "executable": null,
+            "removes": null,
+            "stdin": null,
+            "stdin_add_newline": true,
+            "strip_empty_ends": true,
+            "warn": true
+        }
+    },
+    "rc": 0,
+    "start": "2021-11-04 11:57:32.130054",
+    "stderr": "",
+    "stderr_lines": [],
+    "stdout": "eyJhbGciOiJSUzI1NiIsImtpZCI6InJ5bXJ6cFNSZFNCd1p1UGl4WlZ2U0VSR1JEZ05XRXp2cFlObkZaRUtsOFUifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjIl0sImV4cCI6MTY2NzU2Mjk4OSwiaWF0IjoxNjM2MDI2OTg5LCJpc3MiOiJodHRwczovL2t1YmVybmV0ZXMuZGVmYXVsdC5zdmMiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6InNwZWN0cnVtLWRpc2NvdmVyIiwicG9kIjp7Im5hbWUiOiJzcGVjdHJ1bS1kaXNjb3Zlci1nZW5lcmF0ZS1saWNlbnNlLXZkczhyIiwidWlkIjoiMjRjMGFkOTctYjExMy00OTZhLTg0ZGItMTU4NzVmOGU2NGMzIn0sInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJzcGVjdHJ1bS1kaXNjb3Zlci1vcGVyYXRvciIsInVpZCI6ImZiNTRlNWFhLTg3YjktNGVlZC1hZjg2LTc3OWY3YTVkMGQ4NCJ9LCJ3YXJuYWZ0ZXIiOjE2MzYwMzA1OTZ9LCJuYmYiOjE2MzYwMjY5ODksInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpzcGVjdHJ1bS1kaXNjb3ZlcjpzcGVjdHJ1bS1kaXNjb3Zlci1vcGVyYXRvciJ9.BKAQl1cI0VeAlKfPZHY1IRwZ1UQAVogQ8XZKDmG80bXUD4Ks4fCo6PARpZbv7akjRyrfBWdhJLR3lyt2gjkViijsPVqBuqG1oNRxaCC45-99h5wBimdffpI8raO6xYd5yNHXf0VYvkDzV6pdnwikiJt5XWd04j5R04zpy56nkAITO5sk3kCcl1QaLW45aPYDZDp-4GNhxf8JpKzDwIZLoToqFC1nSI80LVsWJBEWRyGEFe9J2CWPwTCRA1oCKU3-ujuYbjEh9OldEpD98pobAGxC2th5MbyJHnXhyVRD4WpMnzuL0pQG2KtAmH-RMyCBWwmRjAUKybtntxTRwsJA-Q",
+    "stdout_lines": [
+        "eyJhbGciOiJSUzI1NiIsImtpZCI6InJ5bXJ6cFNSZFNCd1p1UGl4WlZ2U0VSR1JEZ05XRXp2cFlObkZaRUtsOFUifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjIl0sImV4cCI6MTY2NzU2Mjk4OSwiaWF0IjoxNjM2MDI2OTg5LCJpc3MiOiJodHRwczovL2t1YmVybmV0ZXMuZGVmYXVsdC5zdmMiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6InNwZWN0cnVtLWRpc2NvdmVyIiwicG9kIjp7Im5hbWUiOiJzcGVjdHJ1bS1kaXNjb3Zlci1nZW5lcmF0ZS1saWNlbnNlLXZkczhyIiwidWlkIjoiMjRjMGFkOTctYjExMy00OTZhLTg0ZGItMTU4NzVmOGU2NGMzIn0sInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJzcGVjdHJ1bS1kaXNjb3Zlci1vcGVyYXRvciIsInVpZCI6ImZiNTRlNWFhLTg3YjktNGVlZC1hZjg2LTc3OWY3YTVkMGQ4NCJ9LCJ3YXJuYWZ0ZXIiOjE2MzYwMzA1OTZ9LCJuYmYiOjE2MzYwMjY5ODksInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpzcGVjdHJ1bS1kaXNjb3ZlcjpzcGVjdHJ1bS1kaXNjb3Zlci1vcGVyYXRvciJ9.BKAQl1cI0VeAlKfPZHY1IRwZ1UQAVogQ8XZKDmG80bXUD4Ks4fCo6PARpZbv7akjRyrfBWdhJLR3lyt2gjkViijsPVqBuqG1oNRxaCC45-99h5wBimdffpI8raO6xYd5yNHXf0VYvkDzV6pdnwikiJt5XWd04j5R04zpy56nkAITO5sk3kCcl1QaLW45aPYDZDp-4GNhxf8JpKzDwIZLoToqFC1nSI80LVsWJBEWRyGEFe9J2CWPwTCRA1oCKU3-ujuYbjEh9OldEpD98pobAGxC2th5MbyJHnXhyVRD4WpMnzuL0pQG2KtAmH-RMyCBWwmRjAUKybtntxTRwsJA-Q"
+    ]
+}
+
+TASK [license : Register Kubernetes API token] *********************************
+task path: /opt/ibm/metaocean/roles/license/tasks/get_token.yaml:18
+ok: [localhost] => {
+    "ansible_facts": {
+        "token": "eyJhbGciOiJSUzI1NiIsImtpZCI6InJ5bXJ6cFNSZFNCd1p1UGl4WlZ2U0VSR1JEZ05XRXp2cFlObkZaRUtsOFUifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjIl0sImV4cCI6MTY2NzU2Mjk4OSwiaWF0IjoxNjM2MDI2OTg5LCJpc3MiOiJodHRwczovL2t1YmVybmV0ZXMuZGVmYXVsdC5zdmMiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6InNwZWN0cnVtLWRpc2NvdmVyIiwicG9kIjp7Im5hbWUiOiJzcGVjdHJ1bS1kaXNjb3Zlci1nZW5lcmF0ZS1saWNlbnNlLXZkczhyIiwidWlkIjoiMjRjMGFkOTctYjExMy00OTZhLTg0ZGItMTU4NzVmOGU2NGMzIn0sInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJzcGVjdHJ1bS1kaXNjb3Zlci1vcGVyYXRvciIsInVpZCI6ImZiNTRlNWFhLTg3YjktNGVlZC1hZjg2LTc3OWY3YTVkMGQ4NCJ9LCJ3YXJuYWZ0ZXIiOjE2MzYwMzA1OTZ9LCJuYmYiOjE2MzYwMjY5ODksInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpzcGVjdHJ1bS1kaXNjb3ZlcjpzcGVjdHJ1bS1kaXNjb3Zlci1vcGVyYXRvciJ9.BKAQl1cI0VeAlKfPZHY1IRwZ1UQAVogQ8XZKDmG80bXUD4Ks4fCo6PARpZbv7akjRyrfBWdhJLR3lyt2gjkViijsPVqBuqG1oNRxaCC45-99h5wBimdffpI8raO6xYd5yNHXf0VYvkDzV6pdnwikiJt5XWd04j5R04zpy56nkAITO5sk3kCcl1QaLW45aPYDZDp-4GNhxf8JpKzDwIZLoToqFC1nSI80LVsWJBEWRyGEFe9J2CWPwTCRA1oCKU3-ujuYbjEh9OldEpD98pobAGxC2th5MbyJHnXhyVRD4WpMnzuL0pQG2KtAmH-RMyCBWwmRjAUKybtntxTRwsJA-Q"
+    },
+    "changed": false
+}
+
+TASK [license : Call REST endpoint] ********************************************
+task path: /opt/ibm/metaocean/roles/license/tasks/k8s_api_call.yaml:16
+<127.0.0.1> ESTABLISH LOCAL CONNECTION FOR USER: root
+<127.0.0.1> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1636027052.9969997-37-73734250561766 `" && echo ansible-tmp-1636027052.9969997-37-73734250561766="` echo /root/.ansible/tmp/ansible-tmp-1636027052.9969997-37-73734250561766 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/net_tools/basics/uri.py
+<127.0.0.1> PUT /opt/app-root/src/.ansible/tmp/ansible-local-8uu4_sstq/tmpmh5ad3_4 TO /root/.ansible/tmp/ansible-tmp-1636027052.9969997-37-73734250561766/AnsiballZ_uri.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1636027052.9969997-37-73734250561766/ /root/.ansible/tmp/ansible-tmp-1636027052.9969997-37-73734250561766/AnsiballZ_uri.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3.6 /root/.ansible/tmp/ansible-tmp-1636027052.9969997-37-73734250561766/AnsiballZ_uri.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1636027052.9969997-37-73734250561766/ > /dev/null 2>&1 && sleep 0'
+ok: [localhost] => {
+    "audit_id": "a2daf6dd-f2dd-4905-81d2-9f6c579d6389",
+    "cache_control": "no-cache, private",
+    "changed": false,
+    "connection": "close",
+    "content_length": "561",
+    "content_type": "application/json",
+    "cookies": {},
+    "cookies_string": "",
+    "date": "Thu, 04 Nov 2021 11:57:36 GMT",
+    "elapsed": 0,
+    "failed_when_result": false,
+    "invocation": {
+        "module_args": {
+            "attributes": null,
+            "backup": null,
+            "body": "",
+            "body_format": "json",
+            "client_cert": null,
+            "client_key": null,
+            "content": null,
+            "creates": null,
+            "delimiter": null,
+            "dest": null,
+            "directory_mode": null,
+            "follow": false,
+            "follow_redirects": "safe",
+            "force": true,
+            "force_basic_auth": false,
+            "group": null,
+            "headers": {
+                "Authorization": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6InJ5bXJ6cFNSZFNCd1p1UGl4WlZ2U0VSR1JEZ05XRXp2cFlObkZaRUtsOFUifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjIl0sImV4cCI6MTY2NzU2Mjk4OSwiaWF0IjoxNjM2MDI2OTg5LCJpc3MiOiJodHRwczovL2t1YmVybmV0ZXMuZGVmYXVsdC5zdmMiLCJrdWJlcm5ldGVzLmlvIjp7Im5hbWVzcGFjZSI6InNwZWN0cnVtLWRpc2NvdmVyIiwicG9kIjp7Im5hbWUiOiJzcGVjdHJ1bS1kaXNjb3Zlci1nZW5lcmF0ZS1saWNlbnNlLXZkczhyIiwidWlkIjoiMjRjMGFkOTctYjExMy00OTZhLTg0ZGItMTU4NzVmOGU2NGMzIn0sInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJzcGVjdHJ1bS1kaXNjb3Zlci1vcGVyYXRvciIsInVpZCI6ImZiNTRlNWFhLTg3YjktNGVlZC1hZjg2LTc3OWY3YTVkMGQ4NCJ9LCJ3YXJuYWZ0ZXIiOjE2MzYwMzA1OTZ9LCJuYmYiOjE2MzYwMjY5ODksInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDpzcGVjdHJ1bS1kaXNjb3ZlcjpzcGVjdHJ1bS1kaXNjb3Zlci1vcGVyYXRvciJ9.BKAQl1cI0VeAlKfPZHY1IRwZ1UQAVogQ8XZKDmG80bXUD4Ks4fCo6PARpZbv7akjRyrfBWdhJLR3lyt2gjkViijsPVqBuqG1oNRxaCC45-99h5wBimdffpI8raO6xYd5yNHXf0VYvkDzV6pdnwikiJt5XWd04j5R04zpy56nkAITO5sk3kCcl1QaLW45aPYDZDp-4GNhxf8JpKzDwIZLoToqFC1nSI80LVsWJBEWRyGEFe9J2CWPwTCRA1oCKU3-ujuYbjEh9OldEpD98pobAGxC2th5MbyJHnXhyVRD4WpMnzuL0pQG2KtAmH-RMyCBWwmRjAUKybtntxTRwsJA-Q",
+                "Content-Type": "application/json"
+            },
+            "http_agent": "ansible-httpget",
+            "method": "GET",
+            "mode": null,
+            "owner": null,
+            "regexp": null,
+            "remote_src": null,
+            "removes": null,
+            "return_content": false,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "status_code": [
+                200,
+                201
+            ],
+            "timeout": 180,
+            "unix_socket": null,
+            "unsafe_writes": null,
+            "url": "https://172.30.0.1:443/api/v1/namespaces/spectrum-discover/configmaps/license",
+            "url_password": null,
+            "url_username": null,
+            "use_proxy": true,
+            "validate_certs": false
+        }
+    },
+    "json": {
+        "apiVersion": "v1",
+        "data": {
+            "jwt_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lciI6InRyaWFsIiwiZXhwIjoxNjM0NjA2NjY3fQ.5OSOhif7AnvKUXc-IWW-MHisv1YQf0NxJVi41lYghVE"
+        },
+        "kind": "ConfigMap",
+        "metadata": {
+            "creationTimestamp": "2021-11-04T11:54:42Z",
+            "managedFields": [
+                {
+                    "apiVersion": "v1",
+                    "fieldsType": "FieldsV1",
+                    "fieldsV1": {
+                        "f:data": {
+                            ".": {},
+                            "f:jwt_token": {}
+                        }
+                    },
+                    "manager": "kubectl-create",
+                    "operation": "Update",
+                    "time": "2021-11-04T11:54:42Z"
+                }
+            ],
+            "name": "license",
+            "namespace": "spectrum-discover",
+            "resourceVersion": "43152754",
+            "uid": "3b5231d7-add8-4fe1-965f-50e084d8e0bc"
+        }
+    },
+    "msg": "OK (561 bytes)",
+    "redirected": false,
+    "status": 200,
+    "url": "https://172.30.0.1:443/api/v1/namespaces/spectrum-discover/configmaps/license",
+    "x_kubernetes_pf_flowschema_uid": "342588a4-5c2d-443c-94d5-a3f5ee2feebb",
+    "x_kubernetes_pf_prioritylevel_uid": "ce13ed84-a8eb-4cd5-ab33-df6495d084c2"
+}
+
+TASK [license : Set response variable] *****************************************
+task path: /opt/ibm/metaocean/roles/license/tasks/k8s_api_call.yaml:39
+ok: [localhost] => {
+    "ansible_facts": {
+        "license_check": {
+            "apiVersion": "v1",
+            "data": {
+                "jwt_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lciI6InRyaWFsIiwiZXhwIjoxNjM0NjA2NjY3fQ.5OSOhif7AnvKUXc-IWW-MHisv1YQf0NxJVi41lYghVE"
+            },
+            "kind": "ConfigMap",
+            "metadata": {
+                "creationTimestamp": "2021-11-04T11:54:42Z",
+                "managedFields": [
+                    {
+                        "apiVersion": "v1",
+                        "fieldsType": "FieldsV1",
+                        "fieldsV1": {
+                            "f:data": {
+                                ".": {},
+                                "f:jwt_token": {}
+                            }
+                        },
+                        "manager": "kubectl-create",
+                        "operation": "Update",
+                        "time": "2021-11-04T11:54:42Z"
+                    }
+                ],
+                "name": "license",
+                "namespace": "spectrum-discover",
+                "resourceVersion": "43152754",
+                "uid": "3b5231d7-add8-4fe1-965f-50e084d8e0bc"
+            }
+        }
+    },
+    "changed": false
+}
+
+TASK [license : Fail if configmap not created] *********************************
+task path: /opt/ibm/metaocean/roles/license/tasks/main.yaml:19
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [license : include_tasks] *************************************************
+task path: /opt/ibm/metaocean/roles/license/tasks/main.yaml:28
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [license : include_tasks] *************************************************
+task path: /opt/ibm/metaocean/roles/license/tasks/main.yaml:30
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+
+TASK [license : Fail if configmap not created] *********************************
+task path: /opt/ibm/metaocean/roles/license/tasks/main.yaml:46
+skipping: [localhost] => {
+    "changed": false,
+    "skip_reason": "Conditional result was False"
+}
+META: ran handlers
+META: ran handlers
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=6    changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+
+OK
