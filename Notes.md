@@ -104,10 +104,18 @@ localhost
 # Fix
 
 ```
+INGRESSHOST=$(oc get route -n istio-system | grep spectrum-discover | awk '{print $2}')
+echo $INGRESSHOST
+# spectrum-discover-ingress.apps.ocp.vsphere.local
+TOKEN=$(curl -ks -u sdadmin:Passw0rd https://$INGRESSHOST/auth/v1/token -I | awk '/X-Auth-Token/ {print $2}')
+```
+```
 oc delete po spectrum-discover-generate-license-6w5zb
 ```
 
 ```
-for po in `oc get po | grep license | awk '{print $1}'`;do oc delete po $po; done
+for po in `oc get po -n spectrum-discover | grep license | awk '{print $1}'`;do oc delete po $po; done
 ```
 
+# GUI Trial Error
+![Login Error](images/trial-login.error.png)
