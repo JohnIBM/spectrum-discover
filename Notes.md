@@ -100,6 +100,10 @@ fatal: [localhost]: FAILED! => {
 PLAY RECAP *********************************************************************
 localhost
 ```
+# GUI Trial Error
+If the license has not been applied correctly, you may see the following login error:
+
+![Login Error](images/trial-login-error.png)
 
 # Fix
 
@@ -117,8 +121,4 @@ oc delete po spectrum-discover-generate-license-6w5zb
 for po in `oc get po -n spectrum-discover | grep license | awk '{print $1}'`;do oc delete po $po; done
 ```
 
-# GUI Trial Error
-The login error is as follows:
 
-![Login Error](images/trial-login-error.png)
-![oc get nodes -lscale=true](images/oc-get-nodes.png)
