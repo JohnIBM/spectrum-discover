@@ -29,7 +29,11 @@
 
     IBM Spectrum Discover requires RWX access for the data volumes. The considerations for Spectrum Scale are described here: https://www.ibm.com/docs/en/spectrum-scale-csi?topic=pods-considerations-mounting-read-write-many-rwx-volumes
 
-    
+    DB2 Information:
+    https://www.ibm.com/docs/en/db2/11.5?topic=cds-selinux-requirements
+    https://www.ibm.com/docs/en/db2/11.5?topic=sr-labeling-hostpath-storage-selinux
+
+
 
 5.  kubectl
     This is required for the DB2WH scripts in step 5:
