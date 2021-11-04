@@ -117,7 +117,7 @@ metadata:
   namespace: spectrum-discover 
 data:
   jwt_token: >-
-    eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lciI6InRyaWFsIiwiZXhwIjoxNjM0NjA2NjY3fQ.5OSOhif7AnvKUXc-IWW-MHisv1YQf0NxJVi41lYghVE
+    <insert-token-here-with-no-spaces>
 EOF
 ```
 
