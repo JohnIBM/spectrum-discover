@@ -105,9 +105,27 @@ If the license has not been applied correctly, you may see the following login e
 
 ![Login Error](images/trial-login-error.png)
 
-# Fix
+# Fix 
 
 ```
+cat << EOF | oc apply -f -
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: license
+  namespace: spectrum-discover 
+data:
+  jwt_token: >-
+    eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJjdXN0b21lciI6InRyaWFsIiwiZXhwIjoxNjM0NjA2NjY3fQ.5OSOhif7AnvKUXc-IWW-MHisv1YQf0NxJVi41lYghVE
+EOF
+```
+
+Then delete the license pods as follows:
+```
+for po in `oc get po -n spectrum-discover | grep license | awk '{print $1}'`;do oc delete po $po; done
+```
+
 INGRESSHOST=$(oc get route -n istio-system | grep spectrum-discover | awk '{print $2}')
 echo $INGRESSHOST
 # spectrum-discover-ingress.apps.ocp.vsphere.local
