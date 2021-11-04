@@ -118,4 +118,7 @@ for po in `oc get po -n spectrum-discover | grep license | awk '{print $1}'`;do 
 ```
 
 # GUI Trial Error
-![Login Error](images/trial-login.error.png)
+The login error is as follows:
+
+![Login Error](images/trial-login-error.png)
+![oc get nodes -lscale=true](images/oc-get-nodes.png)
