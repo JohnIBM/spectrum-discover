@@ -74,3 +74,40 @@ spec:
 ## Service Mesh
 ```
 oc edit smmr default -n istio-system
+```
+
+## Licences Error
+
+```
+oc logs spectrum-discover-generate-license-6w5zb
+```
+
+```
+TASK [license : Call REST endpoint] ********************************************
+task path: /opt/ibm/metaocean/roles/license/tasks/k8s_api_call.yaml:16
+<127.0.0.1> ESTABLISH LOCAL CONNECTION FOR USER: root
+<127.0.0.1> EXEC /bin/sh -c 'echo ~root && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /root/.ansible/tmp `"&& mkdir "` echo /root/.ansible/tmp/ansible-tmp-1635997435.0037742-36-137984253230374 `" && echo ansible-tmp-1635997435.0037742-36-137984253230374="` echo /root/.ansible/tmp/ansible-tmp-1635997435.0037742-36-137984253230374 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/site-packages/ansible/modules/net_tools/basics/uri.py
+<127.0.0.1> PUT /opt/app-root/src/.ansible/tmp/ansible-local-7rdbk5eb6/tmp9ayk7bjh TO /root/.ansible/tmp/ansible-tmp-1635997435.0037742-36-137984253230374/AnsiballZ_uri.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /root/.ansible/tmp/ansible-tmp-1635997435.0037742-36-137984253230374/ /root/.ansible/tmp/ansible-tmp-1635997435.0037742-36-137984253230374/AnsiballZ_uri.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3.6 /root/.ansible/tmp/ansible-tmp-1635997435.0037742-36-137984253230374/AnsiballZ_uri.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /root/.ansible/tmp/ansible-tmp-1635997435.0037742-36-137984253230374/ > /dev/null 2>&1 && sleep 0'
+fatal: [localhost]: FAILED! => {
+    "msg": "The conditional check '('reason' in result.json)' failed. The error was: error while evaluating conditional (('reason' in result.json)): 'dict object' has no attribute 'json'"
+}
+
+PLAY RECAP *********************************************************************
+localhost
+```
+
+# Fix
+
+```
+oc delete po spectrum-discover-generate-license-6w5zb
+```
+
+```
+for po in `oc get po | grep license | awk '{print $1}'`;do oc delete po $po; done
+```
+
